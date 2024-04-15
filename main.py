@@ -35,24 +35,51 @@ root = TreeNode(
         "Do you follow a balanced diet?",
         yes_node=TreeNode(
             "Do you get enough sleep?",
-            yes_node=None,
-            no_node=None,
-            recommendation="You will not die"
+            yes_node=TreeNode(
+                "Do you drink alchocol?",
+                yes_node=None,
+                no_node=None,
+                recommendation="You will not die"
+            ),
+            no_node= TreeNode(
+                "Do you drink alchocol?",
+                yes_node=None,
+                no_node=None,
+                recommendation="You will die"
+            )
         ),
         no_node=TreeNode(
             "Do you want tips on improving your diet?",
-            yes_node=None,
-            no_node=None,
-            recommendation="Consider consulting a nutritionist for personalized advice."
+            yes_node=TreeNode(
+                "Do you believe me",
+                yes_node=None,
+                no_node=None,
+                recommendation="Consider consulting a nutritionist for personalized advice."
+            ),
+            no_node=TreeNode(
+                "Do you believe me",
+                yes_node=None,
+                no_node=None,
+                recommendation="You will die, stupid loser"
+            )
+            
         )
     ),
     no_node=TreeNode(
         "Do you want to start an exercise routine?",
-        yes_node=None,
-        no_node=None,
-        recommendation="Start with light exercises and gradually increase intensity for better health."
+        yes_node=TreeNode(
+            "Do you believe me",
+            yes_node=None,
+            no_node=None,
+            recommendation="Start with light exercises and gradually increase intensity for better health."
+        ),
+        no_node=TreeNode(
+            "Do you believe me",
+            yes_node=None,
+            no_node=None,
+            recommendation="Die, stupid fat loser"
+        )
     )
 )
 
-# Traverse the decision tree based on user responses
 traverse_decision_tree(root)
