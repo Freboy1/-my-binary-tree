@@ -16,7 +16,11 @@ def traverse_decision_tree(node):
             else:
                 break
         elif answer == 'no':
-            node = node.no_node
+            a = node.no_node
+            if a is not None:
+                node = node.no_node
+            else:
+                break
         else:
             print("Invalid input. Please enter 'yes' or 'no'.")
 
@@ -25,9 +29,6 @@ def traverse_decision_tree(node):
         print("\nRecommendation:", node.recommendation)
 
 
-
-
-# Define the decision tree structure
 root = TreeNode(
     "Do you exercise regularly?",
     yes_node=TreeNode(
@@ -36,7 +37,7 @@ root = TreeNode(
             "Do you get enough sleep?",
             yes_node=None,
             no_node=None,
-            recommendation="You're on the right track! Keep it up!"
+            recommendation="You will not die"
         ),
         no_node=TreeNode(
             "Do you want tips on improving your diet?",
