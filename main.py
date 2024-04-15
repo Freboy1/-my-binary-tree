@@ -6,11 +6,15 @@ class TreeNode:
         self.recommendation = recommendation
 
 def traverse_decision_tree(node):
-    while node is not None:
+    while True:
         print(node.question)
         answer = input("Enter 'yes' or 'no': ").lower()
         if answer == 'yes':
-            node = node.yes_node
+            a = node.yes_node
+            if a is not None:
+                node = node.yes_node
+            else:
+                break
         elif answer == 'no':
             node = node.no_node
         else:
